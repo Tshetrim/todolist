@@ -1,0 +1,29 @@
+<%-include("header");-%>
+<body>
+  <div class="box" id="heading">
+    <h1><%= listHeading %></h1>
+  </div>
+
+  <div class="box">
+    <%for(const newItem of newListItems){%>
+      <div class="item">
+
+      <form class="delete-button"  action="/deleteItem" method="POST">
+        <input type = "hidden" name = "route" value = "<%=route%>" />
+        <input type = "checkbox" name="checkDelete" value='<%= JSON.stringify(newItem) %>' onChange="this.form.submit()"/>
+      </form>
+
+        <p><%=newItem.name%></p>
+      </div>
+    <% } %>
+
+    <form class="item" action="<%= route %>"method="post">
+      <input type="text" name="newItem" placeholder="New item" autocomplete="off" required>
+      <button class = "add-button" type="submit" name="list" value="<%= listHeading %>"> + </button>
+      <%# <button class = "trash" type="submit" name="delete">d</button> %>
+    </form>
+
+  </div>
+</body>
+
+<%-include("footer");-%>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+
+<%if(newListItem.length>0){%>
+  <%for(var i=0;i<newListItem.length;i++){%>
+    <%var newItem=newListItem[i];%>
+    <li><%=newItem>%></li>
+  <% } %>
+<% } %>
